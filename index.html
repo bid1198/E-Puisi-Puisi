@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e-puisi | puisi</title>
+
+    <!--
+    MIT License
+    
+    Copyright ©2024 | Bangkit I. D.
+    
+    Permission is hereby granted, free of charge, to any person obtaining a copy
+    of this software and associated documentation files (the "Software"), to deal
+    in the Software without restriction, including without limitation the rights
+    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    copies of the Software, and to permit persons to whom the Software is
+    furnished to do so, subject to the following conditions:
+    
+    The above copyright notice and this permission notice shall be included in all
+    copies or substantial portions of the Software.
+    
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+    SOFTWARE.
+    -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            background-color: #001f3f;
+        }
+
+        section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: #001f3f;
+            overflow: hidden;
+        }
+
+        section .textBox {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background-color: #001a33;
+            overflow: hidden;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0% 100%);
+        }
+
+        section h2,
+        section .textBox h2 {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 10em;
+            line-height: 1em;
+            color: #FFFAFA;
+            cursor: pointer;
+            top: 50px
+        }
+
+        section h2 {
+            -webkit-text-stroke: 2px #FFFAFA;
+            color: transparent;
+        }
+
+        p {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            font-size: 5em; 
+            line-height: 1.5em;
+            color: #FFFAFA;
+            cursor: pointer;
+            top: 200px;
+            transform: skewY(20deg); 
+        }
+        
+            .skew1 {
+        position: relative;
+        top: 50px;
+        transform: skewY(20deg);
+    }
+
+    .skew2 {
+        position: relative;
+        top: 50px;
+        transform: skewY(-20deg);
+    }
+
+        @media (max-width: 768px) {
+            section h2,
+            section .textBox h2 {
+                font-size: 1.5em;
+                line-height: 1.5em;
+            }
+            
+            p {
+                font-size: 0.8em;
+                line-height: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <div class="skew1">
+            <h2 class="layer">PUISI</h2>
+            <p class="layer">sentuhan yang menggerakkan<br>katakata, terdistorsi<br>ruang, transformer, pokoknya begini</p>
+        </div>
+        <div class="textBox">
+            <div class="skew2">
+                <h2 class="layer">E-PUISI</h2>
+                <p class="layer">document.addEventListener<br>let x =(window.innerWidth - e.pageX * 2)/2<br>layer.style.transform = `translateX(${x}px)`;</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('mousemove', parallax);
+        document.addEventListener('touchmove', parallaxTouch);
+
+        function parallax(e) {
+            this.querySelectorAll('.layer').forEach(layer => {
+                let x = (window.innerWidth - e.pageX * 2) / 2;
+                layer.style.transform = `translateX(${x}px)`;
+            });
+        }
+
+        function parallaxTouch(e) {
+            this.querySelectorAll('.layer').forEach(layer => {
+                let x = (window.innerWidth - e.touches[0].pageX * 2) / 2;
+                layer.style.transform = `translateX(${x}px)`;
+            });
+        }
+    </script>
+
+</body>
+</html>
